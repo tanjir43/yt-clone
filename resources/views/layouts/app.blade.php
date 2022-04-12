@@ -11,11 +11,17 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
+    
+    <!-- Alpine js -->
+    <script defer src="https://unpkg.com/alpinejs@3.9.6/dist/cdn.min.js"></script>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
-
+  
+    <!-- Material icons-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+   
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     @livewireStyles
@@ -53,6 +59,12 @@
                                 </li>
                             @endif
                         @else
+
+                        <li class="nav-item">
+                            <a href="{{route('video.create', ['channel' => Auth::user()->channel])}}" class="nav-link">
+                                <span class="material-icons" title="create video">video_call</span>
+                            </a>
+                        </li>
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }}

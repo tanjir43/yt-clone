@@ -3,17 +3,23 @@
 namespace App\Http\Livewire\Channel;
 
 use App\Models\Channel;
+use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Livewire\Component;
-
+use Livewire\WithFileUploads;
+use Intervention\Image\Facades\Image;
 class EditChannel extends Component
 {
+    use AuthorizesRequests;
+    use WithFileUploads;
     public $channel;
+    public $image;
 
     protected function rules(){
         return [
             'channel.name'        => 'required|max:255|unique:channels,name,' .$this->channel->id,
             'channel.slug'        => 'required|max:255|unique:channels,slug,' .$this->channel->id,
             'channel.description' => 'nullable|max:1000',
+            'image'               => 'nullable|image|max:2048',
         ];
     }
     
@@ -27,6 +33,7 @@ class EditChannel extends Component
     }
 
     public function update(){
+        $this->authorize('update', $this->channel);
         $this->validate();
        
         $this->channel->update([
@@ -34,6 +41,23 @@ class EditChannel extends Component
             'slug' => $this->channel->slug,
             'description' => $this->channel->description,
         ]);
+
+            //image check
+        if($this->image){
+            //save image
+            $image = $this->image->storeAs('images', $this->channel->uid .'.png');
+
+            $imageImage = explode('/', $image)[1];
+
+            //resize and convert to png
+            $img = Image::make(storage_path() . '/app/' .$image)->encode('png')->fit(80,80 , function($constraint){
+                $constraint->upsize();
+            })->save();
+
+            $this->channel->update([
+                'image' => $imageImage
+            ]);
+        }
 
         session()->flash('message','Channel has been updated successfully');
         return redirect()->route('channel.edit',['channel' => $this->channel->slug]);
