@@ -39,6 +39,11 @@
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
+                     <ul class="navbar-nav mr-auto">
+                        <li class="nav-item">
+                            <a href="{{route('video.all')}}" class="nav-link">All videos</a>
+                        </li>
+                     </ul>
                     <ul class="navbar-nav me-auto">
 
                     </ul>

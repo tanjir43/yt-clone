@@ -13,7 +13,9 @@
         "laravel/sanctum": "^2.11",
         "laravel/tinker": "^2.5",
         "laravel/ui": "^3.4",
-        "livewire/livewire": "^2.10"
+        "livewire/livewire": "^2.10",
+        "pbmedia/laravel-ffmpeg": "7.8.1",
+        "php-ffmpeg/php-ffmpeg": "^1.0"
     },
     "require-dev": {
         "facade/ignition": "^2.5",
