@@ -10,6 +10,8 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Queue\SerializesModels;
+use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Storage;
 use ProtoneMedia\LaravelFFMpeg\Support\FFMpeg;
 
 
@@ -54,14 +56,18 @@ class ConvertVideoForStreaming implements ShouldQueue
             })
             ->onProgress(function ($progress) {
                 $this->video->update([
-                    'proccessing_percentage' =>$progress
+                    'processing_percentage' =>$progress
                 ]);
             })
-            ->toDisk('videos')
+            ->toDisk('video')
             ->save($destination);
             $this->video->update([
-                'proccessed' => true,
-                'proccessed_file' => $this->video->uid . '.m3u8',
+                'processed' => true,
+                'processed_file' => $this->video->uid . '.m3u8',
              ]); 
+
+             //delete processing video
+           $result =  Storage::disk('videos-temp')->delete($this->video->path);
+           Log::info($this->video->path . 'video was deleted from videos-temp folder');
     }
 }

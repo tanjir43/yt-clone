@@ -41,7 +41,7 @@ class CreateThumbnailFromVideo implements ShouldQueue
         ->open($this->video->path)
         ->getFrameFromSeconds(2)
         ->export()
-        ->toDisk('videos')
+        ->toDisk('video')
         ->save($destination);
 
         $this->video->update([

@@ -17,10 +17,10 @@ class Video extends Model
     }
     public function getThumbnailAttribute(){
         if($this->thumbnail_image){
-            return '/videos/'. $this->uid .'/'.$this->thumbnail_image;
+            return '/video/'. $this->uid .'/'.$this->thumbnail_image;
         }
         else{
-            return '/videos/'. 'default.png';
+            return '/video/'. 'default.png';
         }
     }
 

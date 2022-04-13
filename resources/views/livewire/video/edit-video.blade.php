@@ -1,4 +1,4 @@
-
+<div @if ($video->processing_percentage <100 ) wire:poll @endif>
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-8">
@@ -8,15 +8,15 @@
                     </div>
                     <div class="col-md-8">
                         {{-- <p>processing</p> --}}
-                        {{-- {{$this->proccessing_percentage}} --}}
+                        {{$this->video->processing_percentage}}
                         {{-- 6.8 --}}
                     </div>
                 </div>
-                <div>
+               
                     
      <form wire:submit.prevent="update">
          <div class="row">
-             <h5 class="text-center mt-3">Edit Video <strong>{{(Auth::user()->channel->name)}} </strong></h5>
+             <h5 class="text-center mt-3">Edit Video</h5>
              @if (session()->has('message'))
              <div class="alert alert-success mt-2">{{session('message')}}</div>
          @endif

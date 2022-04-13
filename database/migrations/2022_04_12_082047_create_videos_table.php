@@ -24,7 +24,7 @@ class CreateVideosTable extends Migration
             $table->string('processed_file')->nullable();
             $table->enum('visibility',['private','public','unlisted'])->default('private');
 
-            $table->boolean('proccessed')->default(false);
+            $table->boolean('processed')->default(false);
             $table->boolean('allow_likes')->default(false);
             $table->boolean('allow_comments')->default(false);
 
