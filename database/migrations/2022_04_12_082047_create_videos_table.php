@@ -20,6 +20,7 @@ class CreateVideosTable extends Migration
             $table->string('uid');
             $table->string('thumbnail_image')->nullable();
             $table->text('description')->nullable();
+            $table->integer('views')->default(0);
             $table->text('path')->nullable();
             $table->string('processed_file')->nullable();
             $table->enum('visibility',['private','public','unlisted'])->default('private');

@@ -15,6 +15,7 @@
     <!-- Alpine js -->
     <script defer src="https://unpkg.com/alpinejs@3.9.6/dist/cdn.min.js"></script>
 
+    @stack('custom-css')
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
@@ -24,6 +25,10 @@
    
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+
+    <!-- Custom css -->
+    <link href="{{ asset('css/custom.css') }}" rel="stylesheet">
+
     @livewireStyles
 </head>
 <body>
@@ -104,6 +109,7 @@
             @yield('content')
         </main>
     </div>
+    @stack('scripts')
     @livewireScripts
 </body>
 </html>

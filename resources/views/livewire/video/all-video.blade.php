@@ -11,11 +11,12 @@
                             
                                 
                             <div class="col-md-2">
+                                <a href="{{route('video.watch', $video)}}">
                                 <img src="{{asset($video->thumbnail)}}" class="img-thumbnail" alt="">
-                                
+                            </a>
                             </div>
                             <div class="col-md-3">
-                                <h5>{{$video->title}}</h5>
+                                <a href="{{route('video.watch',$video)}}"><h5>{{$video->title}}</h5></a>
                                 <h5>{{$video->description}}</h5>
                             </div>
                             <div class="col-md-2">

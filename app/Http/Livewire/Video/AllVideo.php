@@ -35,12 +35,11 @@ class AllVideo extends Component
 
         $this->authorize('delete', $video);
         //delete folder 
-        $deleted = Storage::disk('videos')->deleteDirectory($video->uid);
+        $deleted = Storage::disk('video')->deleteDirectory($video->uid);
 
         if ($deleted) {
             $video->delete();
         }
-
         return back();
     }
 }

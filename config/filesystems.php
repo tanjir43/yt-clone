@@ -42,9 +42,9 @@ return [
             'visibility' => 'public',
         ],
 
-        'videos' => [
+        'video' => [
             'driver' => 'local',
-            'root' => storage_path('app/videos'),
+            'root' => storage_path('app/video'),
             'url' => env('APP_URL').'/storage',
             'visibility' => 'public',
         ],
