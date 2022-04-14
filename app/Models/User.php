@@ -42,11 +42,15 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function channel(){
+    public function channel()
+    {
+
         return $this->hasOne(Channel::class);
     }
 
-    public function owns(Video $video){
-        return $this->id = $video->channel->user_id;
+    public function owns(Video $video)
+    {
+        return $this->id == $video->channel->user_id;
     }
+
 }
