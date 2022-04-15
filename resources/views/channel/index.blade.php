@@ -12,10 +12,10 @@
 <div class="container">
     <div class="d-flex justify-content-between align-items-center">
         <div class="d-flex align-items-center">
-            <img src="{{  $channel->picture }}" class="rounded-circle mr-3" height="130px;" width="130px;">
+            <img src="{{ asset('/images/' . $channel->image)}}" class="rounded-circle mr-3" height="130px;">
             <div>
                 <h3>{{$channel->name}}</h3>
-                {{-- <p>{{ $channel->subscribers() }} Subscribers</p> --}}
+                <p>{{ $channel->subscribers() }} Subscribers</p>
             </div>
         </div>
         <div>
@@ -53,6 +53,8 @@
             </div>
             @endforeach
         </div>
+
     </div>
+
 </div>
 @endsection
