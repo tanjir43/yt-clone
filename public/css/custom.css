@@ -47,3 +47,29 @@ body{
     background-color: red;
     border: none;
 }
+.comment-form-control {
+    width: 100%;
+    padding: 10px 10px 10px 5px;
+    border:none;
+    border-bottom: 1px solid #919191;
+}
+.comment-form-control:focus {
+    outline: none;
+}
+
+.card-link {
+    color: #6d7174;
+    text-decoration: none;
+
+}
+
+.card-link:hover {
+    color: #363739;;
+    text-decoration: none;
+}
+.search-btn {
+    border: none;
+}
+.search-btn:focus {
+    border: none;
+}
