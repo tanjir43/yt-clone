@@ -19,7 +19,25 @@ class Channel extends Model
        return $this->belongsTo(User::class);
    }
 
+   public function getPictureAttribute()
+   {
+
+       if ($this->image) {
+           return '/images/' . $this->image;
+       } else {
+           return '/images/' . 'default.png';
+       }
+   }
+
    public function videos(){
        return $this->hasMany(Video::class);
+   }
+
+   public function subscriptions(){
+        return $this->hasMany(Subscription::class);
+   }  
+
+   public function subscribers(){
+       return $this->subscriptions()->count();
    }
 }

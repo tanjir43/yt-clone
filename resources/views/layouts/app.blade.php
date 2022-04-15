@@ -86,7 +86,7 @@
 
                                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                                   
-                                    <a href="{{route('channel.edit',['channel'=>Auth::user()->channel])}}" class="dropdown-item">{{Auth::user()->channel->name}}</a>
+                                    <a href="{{ route('channel.index', ['channel' => Auth::user()->channel])}}" class="dropdown-item">{{Auth::user()->channel->name}}</a>
 
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();

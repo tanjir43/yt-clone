@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap');
 body{
     font-family: 'Roboto', sans-serif;
+    background-color: white;
 }
 
 .video-container{
@@ -10,4 +11,39 @@ body{
 }
 .gray-text{
     color:#909090;
+}
+
+.sub-btn {
+    text-align: center;
+    align-items: center;
+    font-size: 14px;
+    font-weight: 500;
+    padding: 0% 2px;
+    height: 36px;
+    width: 114px;
+    border-radius: 0;
+    border: none;
+    background-color: #F9F9F9;
+    color: #606060;
+}
+
+.sub-btn:hover, .sub-btn:focus {
+    background-color: #F9F9F9;
+    border: none;
+    color: #606060;
+}
+
+.sub-btn-active {
+    height: 36px;
+    width: 114px;
+    font-size: 14px;
+    font-weight: 500;
+    border-radius: 0;
+    border: none;
+    background-color: red;
+    color: white;
+}
+.sub-btn-active:hover, .sub-btn-active:focus {
+    background-color: red;
+    border: none;
 }

@@ -5,8 +5,10 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-12">
-                <div class="video-container">
-                <video controls preload="auto" id="yt-video" wire:ignore class="video-js vjs-fill vjs-styles=defaults vjs-big-play-centered" data-setup="{}">
+                <div class="video-container"  wire:ignore>
+                <video controls preload="auto" id="yt-video" class="video-js vjs-fill vjs-styles=defaults vjs-big-play-centered" data-setup="{}"
+                
+                poster="{{asset('/video/'. $video->uid . '/' . $video->thumbnail_image)}}">
                     <source src="{{asset('/video/'. $video->uid . '/' . $video->processed_file)}}" type="application/x-mpegURL">
                 </video>
                 {{-- <p class="vjs-no-js">To view this video please enable javascript, and consider upgrading to  a web browser that
@@ -30,6 +32,13 @@
                     </div>
                     </div>
                 </div>
+                <hr>
+                <div class="row">
+                    <div class="col-md-12">
+                        <livewire:channel.channel-info :channel="$video->channel"/>
+                    </div>
+                </div>
+                <hr>
             </div>
 
             
